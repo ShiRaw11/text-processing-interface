@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LuSend } from "react-icons/lu";
-
 import { FaCopy } from "react-icons/fa";
 export default function TextProcessingInterface() {
   const [inputText, setInputText] = useState("");
@@ -189,12 +188,14 @@ export default function TextProcessingInterface() {
                       <button
                         className="p-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition"
                         onClick={summarizeText}
+                        aria-label="summarizeAgain"
                       >
                         Summarize Again
                       </button>
                       <button
                         className="p-2 bg-purple-400 text-white rounded-lg hover:bg-purple-500 transition"
                         onClick={replaceWithSummary}
+                        aria-label="replaceText"
                       >
                         Replace Text
                       </button>
@@ -226,6 +227,7 @@ export default function TextProcessingInterface() {
                     <button
                       className="mt-2 p-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition"
                       onClick={summarizeText}
+                      aria-label="summarize"
                     >
                       Summarize
                     </button>
@@ -251,13 +253,14 @@ export default function TextProcessingInterface() {
                   </div>
 
                   <button
-                    className={`px-4 py-2 text-white font-medium rounded-lg transition-all duration-300 shadow-md ${
+                    className={`px-4 py-2 text-white font-medium rounded-lg transition-all duration-300 shadow-md focus-visible:ring-2 focus-visible:ring-blue-300 ${
                       outputText.length > 150
                         ? "bg-gray-300 cursor-not-allowed"
                         : "bg-green-500 hover:bg-green-600 active:scale-95"
                     }`}
                     onClick={translateText}
                     disabled={outputText.length > 150}
+                    aria-label="translate"
                   >
                     Translate
                   </button>
@@ -303,6 +306,7 @@ export default function TextProcessingInterface() {
             placeholder="Enter text here..."
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
+            aria-labelledby="textInput"
           />
           <span className="absolute bottom-2 right-6 text-gray-500 text-sm p-4">
             {wordCount} characters
@@ -317,6 +321,7 @@ export default function TextProcessingInterface() {
     }`}
           onClick={handleSend}
           disabled={outputText}
+          aria-label={outputText ? "Clear text" : "Send text"}
         >
           {outputText ? "Clear text first" : <LuSend />}
         </button>
