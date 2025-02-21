@@ -29,10 +29,12 @@ export default function NavbarText() {
         </Link>
       </div>
       <div className="hidden md:flex gap-4">
-        <button className="px-4 py-2 bg-pink-500 rounded-lg hover:bg-pink-600">
+        <button className="px-4 py-2 bg-pink-500 rounded-lg hover:bg-pink-600"
+        onClick={goToredirect}>
           Sign Up
         </button>
-        <button className="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600">
+        <button className="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600"
+        onClick={goToredirect}>
           Login
         </button>
       </div>
