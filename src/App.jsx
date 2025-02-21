@@ -14,16 +14,16 @@ export default function App(){
       <NavbarText />
       <div className="text-center p-6">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-          🚀 Transform Your Text with AI-Powered Magic!
+          🚀 Transform Your Text with Chrome AI APIs
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mt-4">
-          ✅ Instantly detect languages like a pro
+          ✅ Instantly detect languages.
         </p>
         <p className="text-lg md:text-xl text-gray-700 mt-4">
-          ✅ Translate effortlessly into multiple languages 🌍
+          ✅ Translate effortlessly into multiple languages.
         </p>
         <p className="text-lg md:text-xl text-gray-700 mt-4">
-          ✅ Summarize long content in seconds ⏳
+          ✅ Summarize long content in seconds.
         </p>
 
 
@@ -33,7 +33,7 @@ export default function App(){
           </p>
           <p className="mt-2 text-gray-800">
             ✍️ Just enter your text, choose a language, and hit
-            <span className="font-semibold text-green-600"> "Translate" </span>—it's that easy!
+            <span className="font-semibold text-green-600"> "Translate" </span>
           </p>
           <p className="mt-2 text-gray-800">
             🧾 If you want to summarise, make sure your text has more than 150 characters to access the feature!
