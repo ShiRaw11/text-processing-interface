@@ -172,7 +172,7 @@ export default function TextProcessingInterface() {
       )}
       {outputText && (
         <div className=" flex justify-end w-full">
-          <div className="border border-green-300 shadow-lg p-3 mt-5 rounded-xl mx-5 bg-blue-100 max-w-[500px]">
+          <div className="border border-green-300 shadow-lg p-3 rounded-xl mx-5 bg-blue-100 max-w-[500px]">
             <h1 className="flex justify-center w-full text-[20px] font-bold underline decoration-wavy font-[open_sans] ">
               Results of the output
             </h1>
