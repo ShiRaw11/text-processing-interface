@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import logo from './assets/logo.png'
 export default function NavbarText() {
   const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const goToredirect= ()=>{
-    navigate('/redirect')
-  }
+
+  const goToredirect = () => {
+    navigate("/redirect");
+  };
   return (
     <nav className="bg-gray-900 text-white p-4 h-[90px] shadow-md flex justify-between items-center rounded-lg ">
-      <div className="text-xl font-bold">Logo</div>
+      <div className="h-[50px] w-[50px] "><img className="rounded-full w-full h-full object-cover" src={logo} alt="logo"/></div>
       <div className="hidden md:flex gap-6 text-lg">
         <Link className="hover:text-pink-400" to={"/redirect"}>
           Home
@@ -58,10 +59,16 @@ export default function NavbarText() {
           <Link className="hover:text-pink-400" to={"/redirect"}>
             Summarizer
           </Link>
-          <button className="px-4 py-2 bg-pink-500 rounded-lg hover:bg-pink-600" onClick={goToredirect}>
+          <button
+            className="px-4 py-2 bg-pink-500 rounded-lg hover:bg-pink-600"
+            onClick={goToredirect}
+          >
             Sign Up
-          </button> 
-          <button className="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600" onClick={goToredirect}>
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 rounded-lg hover:bg-blue-600"
+            onClick={goToredirect}
+          >
             Login
           </button>
         </div>
