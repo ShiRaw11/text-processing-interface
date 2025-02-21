@@ -35,7 +35,10 @@ export default function App(){
             ✍️ Just enter your text, choose a language, and hit
             <span className="font-semibold text-green-600"> "Translate" </span>—it's that easy!
           </p>
-
+          <p className="mt-2 text-gray-800">
+            🧾 If you want to summarise, make sure your text has more than 150 characters to access the feature!
+            
+          </p>
         </div>
 
         <button className="mt-6 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition transform hover:scale-105" onClick={goTochat}>
