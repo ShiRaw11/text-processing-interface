@@ -20,15 +20,18 @@ export default function TextProcessingInterface() {
     if (!inputText.trim()) return;
     setLoading(true);
     setError(null);
-    try {
-      setOutputText(inputText);
-      setInputText("");
-      await detectLanguage(inputText);
-    } catch (err) {
-      setError(err.message || "Error processing text.");
-    } finally {
-      setLoading(false);
-    }
+
+    setTimeout(async () => {
+      try {
+        setOutputText(inputText);
+        setInputText("");
+        await detectLanguage(inputText);
+      } catch (err) {
+        setError(err.message || "Error processing text.");
+      } finally {
+        setLoading(false);
+      }
+    }, 1000);
   };
 
   const detectLanguage = async (text) => {
@@ -51,7 +54,6 @@ export default function TextProcessingInterface() {
             confidence: confidence,
           });
         }
-
 
         return { language: detectedLanguage, confidence: confidence };
       } else {
@@ -137,6 +139,9 @@ export default function TextProcessingInterface() {
   };
   const clearMessage = () => {
     setOutputText("");
+
+    window.location.reload();
+    setLoading(true);
   };
   const wordCount = inputText.length;
   const outputWords = outputText.length;
@@ -167,11 +172,11 @@ export default function TextProcessingInterface() {
         </div>
       )}
       {outputText && (
-       <div className=" flex justify-end w-full">
-       <div className="border border-green-300 shadow-lg p-3 mt-5 rounded-xl mx-5 bg-blue-100 max-w-[500px]">
-         <h1 className="flex justify-center w-full text-[20px] font-bold underline decoration-wavy font-[open_sans] ">
-           Results of the output
-         </h1>
+        <div className=" flex justify-end w-full">
+          <div className="border border-green-300 shadow-lg p-3 mt-5 rounded-xl mx-5 bg-blue-100 max-w-[500px]">
+            <h1 className="flex justify-center w-full text-[20px] font-bold underline decoration-wavy font-[open_sans] ">
+              Results of the output
+            </h1>
             <div className="flex-1 overflow-auto p-4 space-y-4">
               <div className="shadow-lg shadow-green-100/50 p-4 border border-green-400 rounded-lg bg-transparent  relative">
                 <span className="absolute top-0 right-0 p-2">
@@ -304,14 +309,21 @@ export default function TextProcessingInterface() {
           </span>
         </div>
         <button
-          className="h-[60px] p-4 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-full transition mt-3"
+          className={`h-[60px] p-4 flex items-center justify-center rounded-full transition mt-3 
+    ${
+      outputText
+        ? "bg-gray-400 text-gray-700 cursor-not-allowed"
+        : "bg-green-500 hover:bg-green-600 text-white"
+    }`}
           onClick={handleSend}
-          disabled={loading}
+          disabled={outputText}
         >
-          {outputText ? "Clear First" : <LuSend />}
+          {outputText ? "Clear text first" : <LuSend />}
         </button>
       </div>
-<p className="w-full flex justify-center text-[12px] text-green-600">Enter more than 150 characters to access summarise</p>
+      <p className="w-full flex justify-center text-[12px] text-green-600">
+        Enter more than 150 characters to access summarise
+      </p>
       {error && <p className="text-red-500 text-center mt-4">{error}</p>}
     </div>
   );
